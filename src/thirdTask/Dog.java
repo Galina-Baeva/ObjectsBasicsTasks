@@ -7,6 +7,7 @@ public class Dog {
     private DogsSize size;
     private int age;
 
+
     public String getName() {
         return name;
     }
@@ -32,12 +33,15 @@ public class Dog {
     }
 
     public void setAge(int age) {
-        if (age != 0) {
-            this.age = age;
-        } else {
+        if (age == 0) {
             Random random = new Random();
             age = random.nextInt(20);
+        } else {
+            this.age = age;
         }
+    }
+    void printDog () {
+        System.out.println(name + " " + size + " " + age);
     }
 
 }

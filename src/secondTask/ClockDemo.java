@@ -12,8 +12,7 @@ public class ClockDemo {
         System.out.println("Please enter amount of seconds since midnight: ");
         seconds = scanner.nextInt();
         Clock firstClock = new Clock(seconds);
-        for (int i = 0; i < 10; ) {
-            i++;
+        for (int i = 0; i < 10; i ++) {
             firstClock.tick();
             firstClock.printTime();
         }
@@ -29,8 +28,7 @@ public class ClockDemo {
             System.out.println("Invalid input format");
         }
         Clock secondClock = new Clock(hours, minutes, seconds);
-        for (int i = 0; i < 10; ) {
-            i++;
+        for (int i = 0; i < 10; i ++) {
             secondClock.tick();
             secondClock.printTime();
         }
