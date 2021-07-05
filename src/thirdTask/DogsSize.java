@@ -3,7 +3,7 @@ package thirdTask;
 import java.util.Random;
 
 public enum DogsSize {
-    BIG, SMALL, MEDIUM;
+    SMALL, MEDIUM, BIG;
 
     private static final DogsSize[] VALUES = values();
     private static final int SIZE = VALUES.length;
