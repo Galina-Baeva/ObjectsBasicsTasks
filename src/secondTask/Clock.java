@@ -16,46 +16,42 @@ public class Clock {
     }
 
     public Clock(int seconds) {
-        this.seconds = seconds;
-    }
-
-    public int getHours() {
-        return hours;
+        setClock(seconds);
     }
 
     void setClock(int secondsToSet) {
+        if (secondsToSet < 0){
+            secondsToSet = secondsToSet + 86400;
+        } else {
+            secondsToSet = secondsToSet % 86400;
+        }
         hours = secondsToSet / 3600;
         minutes = (secondsToSet % 3600) / 60;
         seconds = secondsToSet % 60;
     }
 
     void tick() {
-        int secClock = hours * 3600 + minutes * 60 + seconds;
-        secClock = secClock + 1;
-        setClock(secClock);
+        setClock(setSeconds() + 1);
     }
 
     void tickDown() {
-        int secClock = hours * 3600 + minutes * 60 + seconds;
-        secClock = secClock - 1;
-        setClock(secClock);
+        setClock(setSeconds() - 1);
     }
 
     void addClock(Clock clockToAdd) {
-        this.seconds = hours * 3600 + minutes * 60 + seconds;
-        int secClockToAdd = clockToAdd.hours * 3600 + clockToAdd.minutes * 60 + clockToAdd.seconds;
-        setClock(seconds + secClockToAdd < 86400 ? seconds + secClockToAdd : seconds + secClockToAdd - 86400);
+        setClock(setSeconds() + clockToAdd.setSeconds());
     }
 
     void printTime() {
-        //String.format("%02d:%02d:%02d", hours, minutes, seconds)
-        System.out.println((hours > 9 ? hours : "0" + hours) + ":" + (minutes > 9 ? minutes : "0" + minutes) + ":" + (seconds > 9 ? seconds : "0" + seconds));
+        System.out.println(String.format("%02d:%02d:%02d", hours, minutes, seconds));
     }
 
     void subtractClock(Clock clockToSub) {
-        this.seconds = hours * 3600 + minutes * 60 + seconds;
-        int secClockToSub = clockToSub.hours * 3600 + clockToSub.minutes * 60 + clockToSub.seconds;
-        setClock(seconds >= secClockToSub ? seconds - secClockToSub : 86400 + seconds - secClockToSub);
+        setClock(setSeconds() - clockToSub.setSeconds());
         }
 
+    int setSeconds () {
+        int timeInSeconds = hours * 3600 + minutes * 60 + seconds;
+        return timeInSeconds;
+    }
 }
