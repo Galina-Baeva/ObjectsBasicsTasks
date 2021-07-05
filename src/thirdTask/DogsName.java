@@ -3,7 +3,7 @@ package thirdTask;
 import java.util.Random;
 
 public enum DogsName {
-    SHARIK, TUZIK, DRUZHOK, TEDDIE;
+    SHARIK, TUZIK, DRUZHOK, TEDDIE, BIM;
 
     private static final DogsName[] VALUES = values();
     private static final int SIZE = VALUES.length;

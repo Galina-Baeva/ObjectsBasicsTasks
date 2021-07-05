@@ -1,9 +1,9 @@
 package secondTask;
 
 public class Clock {
-    private int hours;
-    private int minutes;
-    private int seconds;
+    int hours;
+    int minutes;
+    int seconds;
 
     public Clock(int hours, int minutes, int seconds) {
         this.hours = hours;
@@ -21,26 +21,6 @@ public class Clock {
 
     public int getHours() {
         return hours;
-    }
-
-    public void setHours(int hours) {
-        this.hours = hours;
-    }
-
-    public int getMinutes() {
-        return minutes;
-    }
-
-    public void setMinutes(int minutes) {
-        this.minutes = minutes;
-    }
-
-    public int getSeconds() {
-        return seconds;
-    }
-
-    public void setSeconds(int seconds) {
-        this.seconds = seconds;
     }
 
     void setClock(int secondsToSet) {
@@ -68,6 +48,7 @@ public class Clock {
     }
 
     void printTime() {
+        //String.format("%02d:%02d:%02d", hours, minutes, seconds)
         System.out.println((hours > 9 ? hours : "0" + hours) + ":" + (minutes > 9 ? minutes : "0" + minutes) + ":" + (seconds > 9 ? seconds : "0" + seconds));
     }
 

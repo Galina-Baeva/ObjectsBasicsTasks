@@ -17,16 +17,20 @@ public class ClockDemo {
             firstClock.printTime();
         }
         System.out.println("Please enter the time (hours minutes seconds): ");
-        Scanner scanner2 = new Scanner(System.in);
-        time = scanner2.nextLine();
-        try {
-            String[] timeParts = time.split("\\s");
-            hours = Integer.parseInt(timeParts[0]);
-            minutes = Integer.parseInt(timeParts[1]);
-            seconds = Integer.parseInt(timeParts[2]);
-        } catch (NumberFormatException e) {
-            System.out.println("Invalid input format");
-        }
+        hours = scanner.nextInt();
+        minutes = scanner.nextInt();
+        seconds = scanner.nextInt();
+
+        //Scanner scanner2 = new Scanner(System.in);
+        //time = scanner2.nextLine();
+        //try {
+        //    String[] timeParts = time.split("\\s");
+        //    hours = Integer.parseInt(timeParts[0]);
+         //   minutes = Integer.parseInt(timeParts[1]);
+         //   seconds = Integer.parseInt(timeParts[2]);
+       // } catch (NumberFormatException e) {
+          //  System.out.println("Invalid input format");
+        //}
         Clock secondClock = new Clock(hours, minutes, seconds);
         for (int i = 0; i < 10; i ++) {
             secondClock.tick();
