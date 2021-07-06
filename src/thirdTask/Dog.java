@@ -1,5 +1,6 @@
 package thirdTask;
 
+import java.security.SecureRandom;
 import java.util.Random;
 
 public class Dog {
@@ -10,9 +11,15 @@ public class Dog {
     Random random = new Random();
 
     public Dog() {
-        name = String.valueOf(DogsName.getRandomDogName());
+        setRandomName();
         size = DogsSize.getRandomDodSize();
         age = random.nextInt(20);
+    }
+
+    public Dog(String name, DogsSize size, int age) {
+        this.name = name;
+        this.size = size;
+        this.age = age;
     }
 
     public Dog(String name) {
@@ -22,19 +29,29 @@ public class Dog {
     }
 
     public Dog(DogsSize size) {
-        name = String.valueOf(DogsName.getRandomDogName());
+        setRandomName();
         this.size = size;
         age = random.nextInt(20);
     }
 
     public Dog(int age) {
-        name = String.valueOf(DogsName.getRandomDogName());
+        setRandomName();
         size = DogsSize.getRandomDodSize();
         this.age = age;
     }
 
     void printDog() {
         System.out.println(name + " " + size + " " + age);
+    }
+
+    void setRandomName () {
+        final String alfa = "abcdefghijklmnopqrstuvwxyz";
+        SecureRandom random = new SecureRandom();
+        int nameLength = random.nextInt(10);
+        StringBuilder stringBuilder = new StringBuilder(nameLength);
+        for (int i=0; i<nameLength; i++)
+            stringBuilder.append(alfa.charAt(random.nextInt(alfa.length())));
+            name = stringBuilder.toString();
     }
 
 }

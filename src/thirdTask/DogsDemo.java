@@ -1,6 +1,4 @@
 package thirdTask;
-
-import java.sql.Array;
 import java.util.Arrays;
 import java.util.Comparator;
 import java.util.Scanner;
@@ -24,9 +22,8 @@ public class DogsDemo {
                 setOfDogs[i] = new Dog();
             }
         }
-        for (int i = 0; i < numberOfDogs; i++) {
-            setOfDogs[i].printDog();
-        }
+        printAllDogs(setOfDogs);
+
         System.out.println("Dogs from the youngest to the oldest");
         Arrays.sort(setOfDogs, new Comparator<Dog>() {
             @Override
@@ -34,9 +31,8 @@ public class DogsDemo {
                 return o1.age - o2.age;
             }
         });
-        for (int i = 0; i < numberOfDogs; i++) {
-            setOfDogs[i].printDog();
-        }
+        printAllDogs(setOfDogs);
+
         System.out.println("Dogs sorted by name");
         Arrays.sort(setOfDogs, new Comparator<Dog>() {
             @Override
@@ -44,9 +40,7 @@ public class DogsDemo {
                 return o1.name.compareToIgnoreCase(o2.name);
             }
         });
-        for (int i = 0; i < numberOfDogs; i++) {
-            setOfDogs[i].printDog();
-        }
+        printAllDogs(setOfDogs);
 
         System.out.println("Dogs from the smallest to the biggest");
         Arrays.sort(setOfDogs, new Comparator<Dog>() {
@@ -55,8 +49,14 @@ public class DogsDemo {
                 return o1.size.compareTo(o2.size);
             }
         });
-        for (int i = 0; i < numberOfDogs; i++) {
-            setOfDogs[i].printDog();
+        printAllDogs(setOfDogs);
+    }
+
+    static void printAllDogs(Dog array[]) {
+        for (int i = 0; i < array.length; i++) {
+            array[i].printDog();
         }
     }
+
+
 }
